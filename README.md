@@ -108,6 +108,11 @@ Then run the following script:
 
 `python test_depth.py`
 
+## Test Point-Cloud Rendering
+
+First do everything in the previous section, then run the following script:
+
+`python test_pc.py`
 
 ## Project Maintainers
 Main Contributors: [Rodrigo Perez-Vicente](https://github.com/rodrigodelazcano), [Kallinteris Andreas](https://github.com/Kallinteris-Andreas), [Jet Tai](https://github.com/jjshoots)
