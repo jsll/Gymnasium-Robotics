@@ -56,7 +56,9 @@ class DepthObsWrapper(gym.ObservationWrapper):
                 if self.camera_name is not None or self.camera_id != -1:
                     # Gymnasium exposes a convenience setter
                     r.set_camera(
-                        camera_name=self.camera_name if self.camera_name is not None else None,
+                        camera_name=self.camera_name
+                        if self.camera_name is not None
+                        else None,
                         camera_id=None if self.camera_id == -1 else self.camera_id,
                     )
             except TypeError:
@@ -68,7 +70,7 @@ class DepthObsWrapper(gym.ObservationWrapper):
                     r.set_camera(camera_id=self.camera_id)
 
             # Now render without kwargs
-            rgb   = r.render("rgb_array")
+            rgb = r.render("rgb_array")
             depth = r.render("depth_array")
             return rgb, depth
 
@@ -94,6 +96,7 @@ class DepthObsWrapper(gym.ObservationWrapper):
         # Optionally, you could normalize here; we leave raw MuJoCo depth.
         if isinstance(obs, dict):
             obs["depth"] = depth
+            obs["rgb"] = rgb
             return obs
         else:
             return {
@@ -101,4 +104,5 @@ class DepthObsWrapper(gym.ObservationWrapper):
                 "achieved_goal": np.array([], dtype=np.float32),
                 "desired_goal": np.array([], dtype=np.float32),
                 "depth": depth,
+                "rgb": rgb,
             }
