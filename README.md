@@ -100,6 +100,15 @@ print("Step OK; Depth present:", obs["depth"].shape)
 env.close()
 ```
 
+To visualize the depth and RGB rendering you first need to install matplotlib:
+
+`pip install matplotlib`
+
+Then run the following script:
+
+`python test_depth.py`
+
+
 ## Project Maintainers
 Main Contributors: [Rodrigo Perez-Vicente](https://github.com/rodrigodelazcano), [Kallinteris Andreas](https://github.com/Kallinteris-Andreas), [Jet Tai](https://github.com/jjshoots)
 
