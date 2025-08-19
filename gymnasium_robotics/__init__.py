@@ -5,6 +5,7 @@ from gymnasium import register
 from gymnasium_robotics.core import GoalEnv
 from gymnasium_robotics.envs.maze import maps
 from gymnasium_robotics.envs.multiagent_mujoco import mamujoco_v1
+from gymnasium_robotics.wrappers.depth_obs import DepthObsWrapper
 
 __version__ = "1.4.1"
 

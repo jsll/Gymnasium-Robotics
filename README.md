@@ -75,6 +75,29 @@ substitute_truncated = env.compute_truncated(obs["achieved_goal"], substitute_go
 
 The `GoalEnv` class can also be used for custom environments.
 
+## Test Depth Rendering
+
+This is an example script of how to do the depth rendering
+
+```python
+import numpy as np
+import gymnasium as gym
+import gymnasium_robotics as gr
+
+env = gym.make("FetchReach-v4", render_mode="rgb_array")
+env = gr.DepthObsWrapper(env, width=128, height=128, camera_name=None)
+
+obs, info = env.reset()
+print("Obs keys:", list(obs.keys()))
+print("Depth shape:", obs["depth"].shape, obs["depth"].dtype,
+      "min:", float(np.nanmin(obs["depth"])), "max:", float(np.nanmax(obs["depth"])))
+
+obs, reward, terminated, truncated, info = env.step(env.action_space.sample())
+print("Step OK; Depth present:", obs["depth"].shape)
+
+env.close()
+```
+
 ## Project Maintainers
 Main Contributors: [Rodrigo Perez-Vicente](https://github.com/rodrigodelazcano), [Kallinteris Andreas](https://github.com/Kallinteris-Andreas), [Jet Tai](https://github.com/jjshoots)
 
