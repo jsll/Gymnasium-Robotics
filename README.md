@@ -91,6 +91,8 @@ obs, info = env.reset()
 print("Obs keys:", list(obs.keys()))
 print("Depth shape:", obs["depth"].shape, obs["depth"].dtype,
       "min:", float(np.nanmin(obs["depth"])), "max:", float(np.nanmax(obs["depth"])))
+print("RGB shape:", obs["rgb"].shape, obs["rgb"].dtype)
+
 
 obs, reward, terminated, truncated, info = env.step(env.action_space.sample())
 print("Step OK; Depth present:", obs["depth"].shape)
